@@ -1,11 +1,17 @@
+if [ -z ${COMP_USER} ]; then
+	USER=jdawson
+else
+	USER=${COMP_USER}
+fi
+
 # If you come from bash you might have to change your $PATH.
- export PATH=$HOME/bin:/usr/local/bin:/Users/jdawson/.local/bin/:/Users/jdawson/.nodenv/shims/:$PATH
+ export PATH=$HOME/bin:/usr/local/bin:/Users/${USER}/.local/bin/:/Users/${USER}/.nodenv/shims/:$PATH
 
  export NVM_DIR=~/.nvm
  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jdawson/.oh-my-zsh"
+	export ZSH="/Users/${USER}/.oh-my-zsh"
 
 # ALIAS
  alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
@@ -113,5 +119,3 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-“source /Users/jdawson/Projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh”
-“source /Users/jdawson/Projects/zsh-syntax-highlighting/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh”
