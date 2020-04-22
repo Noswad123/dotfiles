@@ -20,9 +20,9 @@ fi
 #postgres stuff
 if [ -z ${PG_HOST} ]; then
 else
-	export PGUSER=6river
-	export PGPASSWORD=6river
-	export PGHOST=localhost
+	export PGUSER=${PG_USER}
+	export PGPASSWORD=${PG_PASSWORD}
+	export PGHOST=${PG_HOST}
 fi
 
 # Set name of the theme to load --- if set to "random", it will
