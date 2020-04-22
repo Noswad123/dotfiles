@@ -18,9 +18,12 @@ fi
 
 
 #postgres stuff
-export PGUSER=6river
-export PGPASSWORD=6river
-export PGHOST=localhost
+if [ -z ${PG_HOST} ]; then
+else
+	export PGUSER=6river
+	export PGPASSWORD=6river
+	export PGHOST=localhost
+fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
