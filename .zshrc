@@ -111,3 +111,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+“source /Users/jdawson/Projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh”
+“source /Users/jdawson/Projects/zsh-syntax-highlighting/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh”
