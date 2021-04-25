@@ -42,7 +42,7 @@ function gprep {
 function gstatus { bash gr status }
 
 # symLink
-ln -sv ~/Projects/dotfiles/$1 ~ 
+function symcreate { ln -sv ~/Projects/dotfiles/$1 ~ }
 
 # I forget
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
