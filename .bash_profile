@@ -1,3 +1,2 @@
 source ~/.bashrc
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
+export PATH=$PATH
