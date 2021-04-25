@@ -9,8 +9,6 @@ export PATH=$HOME/bin:$HOME/.nodenv/bin:/usr/local/bin:/Users/${USER}/.local/bin
 eval "$(anyenv init -)"
 eval "$(nodenv init -)"
 
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/${USER}/.oh-my-zsh"
 
 
 # Set name of the theme to load --- if set to "random", it will
@@ -27,7 +25,6 @@ plugins=(git)
 
 ZSH_DISABLE_COMPFIX="true"
 
-source $ZSH/oh-my-zsh.sh
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
@@ -35,5 +32,17 @@ fi
 
 source <(kubectl completion zsh)
 
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+export MACHINE=$(eval uname -s)
+
+if [ "$MACHINE" = "Darwin" ];
+  then
+    export ZSH="/Users/${USER}/.oh-my-zsh"
+    source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+    source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc;
+  else
+    export ZSH="/home/${USER}/.oh-my-zsh";
+fi
+
+# Path to your oh-my-zsh installation.
+source $ZSH/oh-my-zsh.sh
+
