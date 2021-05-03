@@ -1,0 +1,5 @@
+.attributes !filter !diff
+.zshenv filter=git-crypt diff=git-crypt
+.zshrc filter=git-crypt diff=git-crypt
+.custom-aliases filter=git-crypt diff=git-crypt
+.6rs-custom-aliases filter=git-crypt diff=git-crypt

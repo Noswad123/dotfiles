@@ -1,0 +1,51 @@
+# File Navigation
+alias home='cd ~'
+alias root='cd /'
+alias 6rs='cd ~/src/'
+alias o=open
+alias ..='cd ..'
+alias ...='cd ..; cd ..'
+alias ....='cd ..; cd ..; cd ..'
+alias projects='cd ~/Projects/'
+
+# dotfile management
+alias dotty='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# commands
+alias topten="history | commands | sort -rn | head"
+
+# Tools
+alias uuid="uuidgen | tr -d '\n' | pbcopy && pbpaste && echo"
+
+# Kubernetes
+cv() {
+kubectl -n "$1" describe pods | grep "Image:" | awk '/plasma-column-/ { print }' | sed 's/.*plasma-column-[0-9]\{1,10\}\///' | sed 's/:/ /' | awk '/[0-9]+\.[0-9]+\.[0-9]/ { printf "%-30s %s\n", $1, $2 }' | sort | uniq
+}
+function kgetall { kubectl get pods -n $1 }
+function kget { kubectl get pod $2 -n $1 }
+function kdelall { kubectl delete pods --all -n $1 }
+function kdel { kubectl delete pod $2 -n $1 }
+function klogs { kubectl logs $2 -n $1 | bunyan }
+
+# git
+function gmain { git switch main }
+function gdelete { git branch -d $1 }
+
+function gprep {
+	git branch > gclean.txt
+	echo -e "Delete this line and branches you want to save (main, origin, etc)\n$(cat gclean.txt)" > gclean.txt | vim -
+	echo "Preparing to delete following branches:"
+	cat delete.txt
+	while read i ; do gdelete $i ; done < delete.txt
+	rm gclean.txt
+	rm delete.txt
+	echo "\nGoodbye"
+}
+
+function gstatus { bash gr status }
+
+# symLink
+function symcreate { ln -sv ~/Projects/dotfiles/$1 ~ }
+
+# I forget
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
