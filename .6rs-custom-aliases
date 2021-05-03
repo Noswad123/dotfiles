@@ -1,1 +1,14 @@
-/Users/jambot/src/jamal-tools/dotfiles/.6rs-custom-aliases
+#pm2
+function plogs { pm2 logs --raw --lines 500 $1 | bunyan }
+function pstart { pm2 start $1 }
+function prestart { pm2 restart $1 }
+function pstop { pm2 stop $1 }
+function pwfm { pm2 restart mfp-core docker-ros mfp_config_client }
+
+#dev environment commands
+function devreset { ~/src/mgl-incident-tools/bin/truncate-job-tables.sh --dev}
+function devbootstrap { ~/src/infrastructure/scripts/bootstrap}
+
+
+# rush
+function rnr { rush update && rush build -v }

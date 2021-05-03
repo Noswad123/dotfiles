@@ -1,1 +1,0 @@
-/Users/jambot/src/jamal-tools/dotfiles/.zshenv
